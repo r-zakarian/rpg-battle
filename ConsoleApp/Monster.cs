@@ -7,14 +7,24 @@ public class Monster(int hp, int attack, int defense)
     public int Hp { get; private set; } = hp;
     public int Attack { get; } = attack;
     public int Defense { get; } = defense;
+    public bool Determination { get; set; }
 
     public void AttackMonster(Monster opponent)
     {
-        opponent.TakeDamage(Attack);
+        if (Hp > 0)
+            opponent.TakeDamage(Attack);
+        else
+            return;
     } 
 
     private void TakeDamage(int attack)
     {
-        Hp = Hp - (Attack - Defense);
+        int newHp = Hp - (Attack - Defense);
+        {
+            if (Determination == true && Hp > 1 && newHp < 1)
+                Hp = 1;
+            else
+                Hp = newHp;
+        }
     }
 }

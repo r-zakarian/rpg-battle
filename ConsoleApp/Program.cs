@@ -7,6 +7,7 @@ class Program
         Console.WriteLine("Battle Start!");
 
         Monster monster1 = new Monster(20, 5, 3);
+        monster1.Determination = true;
         Monster monster2 = new Monster(20, 5, 3);
 
         Console.WriteLine("monster1 stats:");
